@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Auth\API as ApiControllers;
 use Illuminate\Support\Facades\Route;
+use App\Http\Auth\Mobile\Controllers as AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::group(['namespace' => ApiControllers::class], function() {
+    Route::post('login', 'LoginApiController@login');
 });
