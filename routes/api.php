@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
-use App\Http\Auth\API as ApiControllers;
-use App\Http\User\API as UserControllers;
+use App\Http\Auth\APIs as ApiControllers;
+use App\Http\User\APIs as UserControllers;
 use Illuminate\Support\Facades\Route;
 use App\Http\Auth\Mobile\Controllers as AuthController;
 

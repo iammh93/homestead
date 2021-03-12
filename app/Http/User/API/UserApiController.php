@@ -6,7 +6,7 @@ use App\Http\Controller;
 use Illuminate\Http\Request;
 
 /**
- * @group User management
+ * @group User
  *
  * APIs for managing user
  * @authenticated

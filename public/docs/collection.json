@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "a1d7e263-8d98-46c7-bf03-5262143b6a36",
+        "_postman_id": "c84212ad-f534-401c-8ffe-cbe7c3681799",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -26,22 +26,21 @@
                             "protocol": "http",
                             "host": "{{baseUrl}}",
                             "path": "api\/login",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/login",
-                            "variable": [
+                            "query": [
                                 {
-                                    "id": "email",
                                     "key": "email",
-                                    "value": "eaque",
-                                    "description": ""
+                                    "value": "",
+                                    "description": "",
+                                    "disabled": false
                                 },
                                 {
-                                    "id": "password",
                                     "key": "password",
-                                    "value": "ratione",
-                                    "description": ""
+                                    "value": "",
+                                    "description": "",
+                                    "disabled": false
                                 }
-                            ]
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/login?email=&password="
                         },
                         "method": "POST",
                         "header": [

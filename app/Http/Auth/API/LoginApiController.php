@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Auth\Controllers\LoginController;
+use phpDocumentor\Reflection\Types\Boolean;
 
 /**
  * @group Authentication
@@ -22,25 +23,28 @@ class LoginApiController extends LoginController
      *
      * @throws \Illuminate\Validation\ValidationException
      * 
-     * @urlParam email required
-     * @urlParam password required
+     * @queryParam email required No-example
+     * @queryParam password required No-example
      * @response {
      *  "access_token": "eyJ0eXAiOiJKV1QiL...",
      *  "token_type": "Bearer",
      *  "expires_at": "2022-03-12 02:49:46"
      * }
      */
+
     public function login(Request $request)
     {
         $this->validateLogin($request);
 
-        if (method_exists($this, 'hasTooManyLoginAttempts') &&
-            $this->hasTooManyLoginAttempts($request)) {
+        if (
+            method_exists($this, 'hasTooManyLoginAttempts') &&
+            $this->hasTooManyLoginAttempts($request)
+        ) {
             $this->fireLockoutEvent($request);
 
             return $this->sendLockoutResponse($request);
         }
-        
+
         if (!$this->attemptLogin($request)) {
             return response()->json([
                 'message' => 'Unauthorized'
@@ -65,4 +69,6 @@ class LoginApiController extends LoginController
             )->toDateTimeString()
         ]);
     }
+
+
 }

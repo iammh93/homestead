@@ -11,7 +11,7 @@ APIs for authentication
 
 ```bash
 curl -X POST \
-    "http://localhost/api/login" \
+    "http://localhost/api/login?email=&password=" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -20,6 +20,13 @@ curl -X POST \
 const url = new URL(
     "http://localhost/api/login"
 );
+
+let params = {
+    "email": "",
+    "password": "",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -62,15 +69,15 @@ fetch(url, {
 <small class="badge badge-black">POST</small>
  <b><code>api/login</code></b>
 </p>
-<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
 <p>
 <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="email" data-endpoint="POSTapi-login" data-component="url" required  hidden>
+<input type="text" name="email" data-endpoint="POSTapi-login" data-component="query" required  hidden>
 <br>
 </p>
 <p>
 <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="password" data-endpoint="POSTapi-login" data-component="url" required  hidden>
+<input type="text" name="password" data-endpoint="POSTapi-login" data-component="query" required  hidden>
 <br>
 </p>
 </form>
