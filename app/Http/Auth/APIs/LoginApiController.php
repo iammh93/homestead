@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Auth\API;
+namespace App\Http\Auth\APIs;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
