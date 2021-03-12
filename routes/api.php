@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Http\Auth\API as ApiControllers;
+use App\Http\User\API as UserControllers;
 use Illuminate\Support\Facades\Route;
 use App\Http\Auth\Mobile\Controllers as AuthController;
 
@@ -16,10 +17,12 @@ use App\Http\Auth\Mobile\Controllers as AuthController;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::group(['namespace' => ApiControllers::class], function() {
     Route::post('login', 'LoginApiController@login');
+});
+
+Route::middleware('auth:api')->group(function () {
+    Route::group(['namespace' => UserControllers::class], function() {
+        Route::get('user', 'UserApiController@getUserData');
+    });
 });
