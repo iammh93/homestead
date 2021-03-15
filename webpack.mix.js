@@ -15,8 +15,7 @@ const mix = require('laravel-mix');
     .vue()
     .sass('resources/sass/app.scss', 'public/css')
     .browserSync({
-        host: '0.0.0.0',
-        proxy: 'localhost:80',
+        proxy: 'homestead.test',
         open: false,
         watchOptions: {
             usePolling: true,
